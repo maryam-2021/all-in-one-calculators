@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fII78qQyW_SG17i4NZEG2jaoV1cdlCNkUe_a0m7W9Iw">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<title>Time Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Add or subtract time values, dates, or expressions with unit support. Use our free time calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Time Calculator – Free Online Calculator">
+<meta property="og:description" content="Add or subtract time values, dates, or expressions with unit support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://all-in-one-calculators.pages.dev/time-calculator.html">
+<link rel="canonical" href="https://all-in-one-calculators.pages.dev/time-calculator.html">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Time Calculator – Free Online Calculator",
+  "description": "Add or subtract time values, dates, or expressions with unit support. Use our free time calculator online — instant results, no sign-up.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All"
+}
+</script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.svg" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <span class="logo-heading" style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</span>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Runs in your browser
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="time-calculators.html">Time Calculators</a>
+      <span>›</span>
+      <span class="current">Time Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>⏳ Time Calculator</h1>
+      <p>Add or subtract time values, dates, or expressions with unit support.</p>
+    </div>
+
+    <div class="calc-widget">
+      
+      <style>
+        .tc-tabs { display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; overflow-x: auto; }
+        .tc-tab { padding: 10px 20px; border-radius: var(--radius-md); cursor: pointer; color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap; }
+        .tc-tab.active { background: rgba(32, 138, 240, 0.1); color: var(--accent-blue); }
+        .tc-panel { display: none; }
+        .tc-panel.active { display: block; }
+        .time-input-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+        .time-input-grid label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px; }
+        .time-input-grid input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff; font-family: 'JetBrains Mono', monospace; }
+      </style>
+      <div class="tc-tabs">
+        <div class="tc-tab active" onclick="showTab(0)">Add/Subtract</div>
+        <div class="tc-tab" onclick="showTab(1)">Time from Date</div>
+        <div class="tc-tab" onclick="showTab(2)">Expression</div>
+      </div>
+
+      <div id="panel0" class="tc-panel active">
+        <div class="time-input-grid">
+          <div><label>Days</label><input type="number" id="td1" value="0"></div>
+          <div><label>Hours</label><input type="number" id="th1" value="0"></div>
+          <div><label>Mins</label><input type="number" id="tm1" value="0"></div>
+          <div><label>Secs</label><input type="number" id="ts1" value="0"></div>
+        </div>
+        <div style="text-align: center; margin: 0 0 16px;">
+          <select id="top1" style="background: var(--bg-input); border: 1px solid var(--border-color); color: #fff; padding: 6px 16px; border-radius: 6px; font-weight: 700;">
+            <option value="add">+</option>
+            <option value="sub">−</option>
+          </select>
+        </div>
+        <div class="time-input-grid">
+          <div><label>Days</label><input type="number" id="td2" value="0"></div>
+          <div><label>Hours</label><input type="number" id="th2" value="0"></div>
+          <div><label>Mins</label><input type="number" id="tm2" value="0"></div>
+          <div><label>Secs</label><input type="number" id="ts2" value="0"></div>
+        </div>
+        <button class="calc-btn" onclick="calcAddSub()" style="width: 100%; margin-top: 12px;">Calculate Result</button>
+      </div>
+
+      <div id="panel1" class="tc-panel">
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label>Start Date & Time</label>
+          <input type="datetime-local" id="tDateTimeStart" style="width:100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff;">
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label>Operation</label>
+          <select id="topDate" style="width:100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff;">
+            <option value="add">Add Time</option>
+            <option value="sub">Subtract Time</option>
+          </select>
+        </div>
+        <div class="time-input-grid">
+          <div><label>Days</label><input type="number" id="tdd" value="0"></div>
+          <div><label>Hours</label><input type="number" id="tdh" value="0"></div>
+          <div><label>Mins</label><input type="number" id="tdm" value="0"></div>
+          <div><label>Secs</label><input type="number" id="tds" value="0"></div>
+        </div>
+        <button class="calc-btn" onclick="calcFromDate()" style="width: 100%; margin-top: 12px;">Calculate New Date</button>
+      </div>
+
+      <div id="panel2" class="tc-panel">
+        <div class="form-group">
+          <label>Expression (e.g. 1d 2h + 30m - 5s)</label>
+          <input type="text" id="tExprInput" placeholder="1d 2h 3m + 4h" style="width:100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff; font-family: 'JetBrains Mono', monospace;">
+        </div>
+        <button class="calc-btn" onclick="calcExpr()" style="width: 100%; margin-top: 16px;">Evaluate Expression</button>
+      </div>
+
+      <div class="calc-result" id="tCalcResult" style="margin-top: 32px; background: rgba(32, 138, 240, 0.05); padding: 32px; border-radius: var(--radius-lg); border: 1px solid rgba(32, 138, 240, 0.2);">
+        <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 8px;">Result</div>
+        <div class="result-value" id="tResValue" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 16px;">00:00:00</div>
+        <div class="result-details" id="tResDetails" style="display: flex; flex-wrap: wrap; gap: 12px;"></div>
+      </div>
+    
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Time Calculator?</h2>
+      <p>
+    <p>Complete time utility to add or subtract time values, calculate new dates given a duration, or evaluate complex time-unit expressions.</p>
+    <div style="margin-top: 32px;">
+      <h3 style="margin-bottom: 12px; color: var(--text-primary);">Common Time Units</h3>
+      <div style="overflow-x: auto;">
+        <table class="rate-table">
+          <thead><tr><th>Unit</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td>millennium</td><td>1,000 years</td></tr>
+            <tr><td>century</td><td>100 years</td></tr>
+            <tr><td>decade</td><td>10 years</td></tr>
+            <tr><td>year (average)</td><td>365.242 days or 12 months</td></tr>
+            <tr><td>common year</td><td>365 days or 12 months</td></tr>
+            <tr><td>leap year</td><td>366 days or 12 months</td></tr>
+            <tr><td>quarter</td><td>3 months</td></tr>
+            <tr><td>month</td><td>28-31 days</td></tr>
+            <tr><td>week</td><td>7 days</td></tr>
+            <tr><td>day</td><td>24 hours or 1,440 minutes</td></tr>
+            <tr><td>hour</td><td>60 minutes or 3,600 seconds</td></tr>
+            <tr><td>minute</td><td>60 seconds</td></tr>
+            <tr><td>second</td><td>base unit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <h3 style="margin-bottom: 12px; color: var(--text-primary);">Concepts of Time</h3>
+      <p style="margin-bottom: 12px; font-size: 0.95rem;"><strong>Ancient Greece (Aristotle):</strong> Aristotle defined time as "a number of movement in respect of the before and after." Essentially, Aristotle's view of time defined it as a measurement of change requiring motion or change.</p>
+      <p style="margin-bottom: 12px; font-size: 0.95rem;"><strong>Newton vs. Leibniz:</strong> Isaac Newton argued for "absolute time" that flows without regard to external factors. In contrast, Leibniz believed time is a relational concept that only makes sense in the presence of objects to sequence events.</p>
+      <p style="margin-bottom: 12px; font-size: 0.95rem;"><strong>Einstein:</strong> Albert Einstein introduced the idea of spacetime. He posited that the speed of light is constant for all observers, meaning time itself must change for observers at different relative velocities.</p>
+    </div>
+    <div style="margin-top: 32px;">
+      <h3 style="margin-bottom: 12px; color: var(--text-primary);">How We Measure Time</h3>
+      <p style="margin-bottom: 12px; font-size: 0.95rem;">Measurements of time are based on the <strong>sexagesimal system</strong> (base 60), originating from ancient Sumer and later adopted by Babylonians. Base 60 is used because 60 is a superior highly composite number with 12 factors, simplifying fractions.</p>
+      <p style="margin-bottom: 12px; font-size: 0.95rem;">Early devices ranging from oil lamps and clepsydras (water clocks) to mechanical pendulum clocks and current atomic clocks show our progress. Atomic clocks, using cesium resonance, are the most accurate, defining the SI unit of the second.</p>
+    </div>
+    </p>
+      <div class="formula-box"><code>Time is calculated using 60-base math (1m=60s, 1h=60m, 1d=24h).</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Time Calculator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Time calculation is unique because it doesn't use the standard base-10 system we use for money or distance. Instead, it uses a complex mix of Base-60 (Sexagesimal) and Base-24.</p>
+      <h4>Why is Time so Complicated?</h4>
+      <p>Because years, months, and days are based on the rotation of the Earth and its orbit around the Sun, they don't fit into neat decimal numbers. This is why we have leap years every four years—to "catch up" the 0.242 days that the Earth takes to complete an orbit beyond the flat 365 days.</p>
+      <h4>Mastering Time Expressions</h4>
+      <p>Our Expression mode allows you to treat time like a mathematical formula. This is particularly useful for project management, video editing, or calculating long-distance flight durations across multiple layovers.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Example: 1d 12h + 12h = 2d 0h 0m 0s</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">How does the expression mode work?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">You can chain time units with + and - signs. Example: "2h 30m + 45s - 1h".</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What units are supported?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Days (d), Hours (h), Minutes (m), and Seconds (s).</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="age-calculator.html" class="related-link"><span class="r-icon">🎂</span>Age Calculator</a><a href="date-calculator.html" class="related-link"><span class="r-icon">📅</span>Date Calculator</a><a href="time-zone-converter.html" class="related-link"><span class="r-icon">🌍</span>Time Zone Converter</a><a href="days-between-dates.html" class="related-link"><span class="r-icon">📆</span>Days Between Dates</a><a href="hours-calculator.html" class="related-link"><span class="r-icon">⌚</span>Hours Calculator</a><a href="countdown-calculator.html" class="related-link"><span class="r-icon">⏳</span>Countdown Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
+}
+
+      function showTab(n) {
+        document.querySelectorAll('.tc-tab').forEach((t, i) => t.classList.toggle('active', i === n));
+        document.querySelectorAll('.tc-panel').forEach((p, i) => p.classList.toggle('active', i === n));
+        document.getElementById('tCalcResult').style.display = 'none';
+      }
+
+      function getV(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+      function formatTime(totalSecs) {
+        const sign = totalSecs < 0 ? '-' : '';
+        let s = Math.abs(totalSecs);
+        const d = Math.floor(s / 86400); s %= 86400;
+        const h = Math.floor(s / 3600); s %= 3600;
+        const m = Math.floor(s / 60); s %= 60;
+        let res = [];
+        if (d > 0) res.push(d + 'd');
+        if (h > 0) res.push(h + 'h');
+        if (m > 0) res.push(m + 'm');
+        if (s > 0 || res.length === 0) res.push(Math.round(s) + 's');
+        return sign + res.join(' ');
+      }
+
+      function showR(val, details) {
+        const r = document.getElementById('tCalcResult');
+        document.getElementById('tResValue').innerText = val;
+        document.getElementById('tResDetails').innerHTML = details.map(d => '<span style="background:rgba(32,138,240,0.1); padding:6px 14px; border-radius:100px; font-size:0.85rem; color:var(--text-secondary); border:1px solid rgba(32,138,240,0.1)">'+d+'</span>').join('');
+        r.classList.add('visible');
+        r.scrollIntoView({behavior: 'smooth', block: 'end'});
+      }
+
+      function calcAddSub() {
+        const s1 = getV('td1')*86400 + getV('th1')*3600 + getV('tm1')*60 + getV('ts1');
+        const s2 = getV('td2')*86400 + getV('th2')*3600 + getV('tm2')*60 + getV('ts2');
+        const op = document.getElementById('top1').value;
+        const result = op === 'add' ? s1 + s2 : s1 - s2;
+        showR(formatTime(result), ['Total Seconds: ' + result.toLocaleString() + 's']);
+      }
+
+      function calcFromDate() {
+        const start = document.getElementById('tDateTimeStart').value;
+        if (!start) return alert('Please select a start date');
+        const date = new Date(start);
+        const diff = getV('tdd')*86400 + getV('tdh')*3600 + getV('tdm')*60 + getV('tds');
+        const op = document.getElementById('topDate').value;
+        const multiplier = op === 'add' ? 1 : -1;
+        date.setSeconds(date.getSeconds() + (diff * multiplier));
+        showR(date.toLocaleString(), [
+          'Year: ' + date.getFullYear(),
+          'Day: ' + date.toLocaleDateString(undefined, {weekday:'long'})
+        ]);
+      }
+
+      function calcExpr() {
+        const input = document.getElementById('tExprInput').value.toLowerCase().trim();
+        if (!input) return alert('Enter an expression');
+        // Support common variants like 1hr, 2min, 30sec
+        const cleanInput = input.replace(/hours?|hr|hrs/g, 'h')
+                                .replace(/minutes?|min|mins/g, 'm')
+                                .replace(/seconds?|sec|secs/g, 's')
+                                .replace(/days?/g, 'd');
+        const regex = /([+-]?s*[d.]+s*[dhms])/g;
+        let totalSecs = 0;
+        const matches = cleanInput.match(regex);
+        if(!matches) return alert('Invalid format. Use e.g. 1d 2h + 30m');
+        matches.forEach(m => {
+          let str = m.replace(/s+/g, '');
+          let unit = str.slice(-1);
+          let valStr = str.slice(0, -1);
+          // Handle explicit + or - at start
+          let sign = 1;
+          if (valStr.startsWith('-')) { sign = -1; valStr = valStr.substring(1); }
+          else if (valStr.startsWith('+')) { valStr = valStr.substring(1); }
+          
+          let val = parseFloat(valStr) || 0;
+          if (unit === 'd') totalSecs += sign * val * 86400;
+          else if (unit === 'h') totalSecs += sign * val * 3600;
+          else if (unit === 'm') totalSecs += sign * val * 60;
+          else if (unit === 's') totalSecs += sign * val;
+        });
+        showR(formatTime(totalSecs), ['Total Seconds: ' + totalSecs.toLocaleString() + 's']);
+      }
+
+      document.getElementById('tDateTimeStart').value = new Date().toISOString().slice(0, 16);
+    
+</script>
+</body>
+</html>

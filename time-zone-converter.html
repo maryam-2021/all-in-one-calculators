@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fII78qQyW_SG17i4NZEG2jaoV1cdlCNkUe_a0m7W9Iw">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<title>Time Zone Converter – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Convert time between any two time zones around the world. Use our free time zone converter online — instant results, no sign-up.">
+<meta property="og:title" content="Time Zone Converter – Free Online Calculator">
+<meta property="og:description" content="Convert time between any two time zones around the world.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://all-in-one-calculators.pages.dev/time-zone-converter.html">
+<link rel="canonical" href="https://all-in-one-calculators.pages.dev/time-zone-converter.html">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Time Zone Converter – Free Online Calculator",
+  "description": "Convert time between any two time zones around the world. Use our free time zone converter online — instant results, no sign-up.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All"
+}
+</script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.svg" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <span class="logo-heading" style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</span>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Runs in your browser
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="time-calculators.html">Time Calculators</a>
+      <span>›</span>
+      <span class="current">Time Zone Converter</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🌍 Time Zone Converter</h1>
+      <p>Convert time between any two time zones around the world.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="time">Local Time</label>
+      <input type="datetime-local" id="time" placeholder="undefined" >
+    </div><div class="form-group">
+      <label for="offset">Target UTC Offset (Hours)</label>
+      <input type="number" id="offset" placeholder="+1" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Convert Time</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+        
+        <!-- Social Share Viral Section -->
+        <div class="viral-share" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px; display: none;" id="shareBox">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">🚀 SHARE YOUR RESULT:</p>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="shareResult('whatsapp')" style="background: #25d366; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">WhatsApp</button>
+            <button onclick="shareResult('facebook')" style="background: #1877f2; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Facebook</button>
+            <button onclick="shareResult('copy')" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Time Zone Converter?</h2>
+      <p>The Time Zone Converter helps you coordinate across the globe by translating any local time into a different UTC/GMT offset.</p>
+      <div class="formula-box"><code>Target Time = UTC + Offset</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Time Zone Converter</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>In our hyper-connected world, coordinating across continents is a daily task. Whether you are scheduling a business meeting in London or catching a live stream from Tokyo, understanding time zones is essential.</p>
+      <h4>UTC vs. GMT</h4>
+      <p><strong>UTC (Coordinated Universal Time)</strong> is the primary time standard by which the world regulates clocks and time. It is not a time zone itself. <strong>GMT (Greenwich Mean Time)</strong> is a time zone used in some European and African countries. For most practical purposes, they are identical in time value.</p>
+      <h4>Daylight Saving Time (DST)</h4>
+      <p>The trickiest part of time zone conversion is DST. Not all countries observe it, and those that do often change their clocks on different dates. When converting, always double-check if your target offset includes an extra hour for summer time.</p>
+      <h4>Prime Meridian</h4>
+      <p>All time zones are measured as offsets from the Prime Meridian in Greenwich, London (0° longitude). Bases jump in 15-degree increments of longitude to creates 24 standard one-hour zones.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>If it is 10:00 AM in New York (UTC-5) and you want to know the time in Berlin (UTC+1), the target offset is +1. Result: 4:00 PM.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">What is my local UTC offset?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Your browser reports your current local offset based on your system settings. This tool uses that as the starting point.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Does this calculator handle half-hour offsets?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Input offsets like +5.5 (India) or +9.5 (South Australia) to get precise conversions.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Why are there 24 time zones?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The Earth rotates 360 degrees in 24 hours, meaning it rotates about 15 degrees per hour. This led to the creation of 24 theoretical one-hour segments.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="age-calculator.html" class="related-link"><span class="r-icon">🎂</span>Age Calculator</a><a href="date-calculator.html" class="related-link"><span class="r-icon">📅</span>Date Calculator</a><a href="days-between-dates.html" class="related-link"><span class="r-icon">📆</span>Days Between Dates</a><a href="hours-calculator.html" class="related-link"><span class="r-icon">⌚</span>Hours Calculator</a><a href="countdown-calculator.html" class="related-link"><span class="r-icon">⏳</span>Countdown Calculator</a><a href="work-hours-calculator.html" class="related-link"><span class="r-icon">🕒</span>Work Hours Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
+}
+function calculate(){
+  const t = new Date(v('time')), off = parseFloat(v('offset') || 0);
+  if(isNaN(t)) return alert('Please select a local time');
+  
+  const utc = t.getTime() + (t.getTimezoneOffset() * 60000);
+  const target = new Date(utc + (3600000 * off));
+  
+  showResult('Converted Time', target.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}), [
+    'Date: '+target.toLocaleDateString(undefined, {weekday: 'long', month:'short', day:'numeric'}),
+    'Difference: '+(off - ( -t.getTimezoneOffset()/60 ))+' hours from local',
+    'UTC Equivalent: '+new Date(utc).toUTCString()
+  ]);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fII78qQyW_SG17i4NZEG2jaoV1cdlCNkUe_a0m7W9Iw">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<title>Why Your Life Path Number is the Key to Your Career Success | CalcSmart</title>
+<meta name="description" content="An entertainment-focused look at life path numbers and career themes, without predictive claims.">
+<link rel="canonical" href="https://all-in-one-calculators.pages.dev/article-life-path-number-career-success.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.svg" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <span class="logo-heading" style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</span>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Runs in your browser
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page" style="max-width:800px; margin: 0 auto; padding-top:40px;">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>›</span> <a href="guides.html">Guides</a> <span>›</span> <span>Article</span>
+    </div>
+    <h1 style="font-size:3rem; margin:24px 0; line-height:1.1;">Why Your Life Path Number is the Key to Your Career Success</h1>
+    <div class="content-section" style="font-size:1.1rem; line-height:1.8; color:var(--text-secondary);">
+      
+      <p>In numerology, your Life Path Number is the most important number in your chart. It reveals your core personality, your challenges, and the type of work that will leave you feeling fulfilled.</p>
+      <h3>Find Your Number</h3>
+      <p>Your number is calculated by reducing your full birth date to a single digit (or master numbers 11, 22, 33). For example, if you were born on Oct 12, 1990 (10/12/1990), you add: 1+0+1+2+1+9+9+0 = 23, then 2+3 = 5. You are a Life Path 5!</p>
+      <p><strong>Path 1:</strong> The Leader/Entrepreneur. <strong>Path 5:</strong> The Communicator/Traveler. <strong>Path 8:</strong> The Executive/Financial Guru. Discover your number and what it means for your wallet with our <a href="lucky-numbers.html">Lucky Number & Path Finder</a>.</p>
+    
+    </div>
+    <div style="margin-top:60px; padding-top:40px; border-top:1px solid var(--border-color);">
+      <a href="guides.html" style="color:var(--accent-blue); text-decoration:none; font-weight:700;">← Back to Guides</a>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>

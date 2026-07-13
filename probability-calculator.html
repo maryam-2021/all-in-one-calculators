@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fII78qQyW_SG17i4NZEG2jaoV1cdlCNkUe_a0m7W9Iw">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<title>Probability Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Calculate probability for single and multiple events. Use our free probability calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Probability Calculator – Free Online Calculator">
+<meta property="og:description" content="Calculate probability for single and multiple events.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://all-in-one-calculators.pages.dev/probability-calculator.html">
+<link rel="canonical" href="https://all-in-one-calculators.pages.dev/probability-calculator.html">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Probability Calculator – Free Online Calculator",
+  "description": "Calculate probability for single and multiple events. Use our free probability calculator online — instant results, no sign-up.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All"
+}
+</script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.svg" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <span class="logo-heading" style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</span>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Runs in your browser
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span>›</span>
+      <span class="current">Probability Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🎲 Probability Calculator</h1>
+      <p>Calculate probability for single and multiple events.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="n">Possible Outcomes (Sample Space)</label>
+      <input type="number" id="n" placeholder="6" >
+    </div><div class="form-group">
+      <label for="f">Favorable Outcomes</label>
+      <input type="number" id="f" placeholder="1" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate Probability</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+        
+        <!-- Social Share Viral Section -->
+        <div class="viral-share" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px; display: none;" id="shareBox">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">🚀 SHARE YOUR RESULT:</p>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="shareResult('whatsapp')" style="background: #25d366; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">WhatsApp</button>
+            <button onclick="shareResult('facebook')" style="background: #1877f2; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Facebook</button>
+            <button onclick="shareResult('copy')" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Probability Calculator?</h2>
+      <p>The Probability Calculator determines the likelihood of an event occurring. It calculates the ratio of favorable outcomes to the total number of possible outcomes in a sample space.</p>
+      <div class="formula-box"><code>P(A) = n(A) / n(S)</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Probability Calculator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Probability is the mathematical study of randomness and uncertainty. It is used in everything from weather forecasting and insurance to gambling and quantum physics. Understanding basic probability helps you make better decisions in high-stakes environments.</p>
+      <h4>Theoretical vs. Experimental Probability</h4>
+      <p><strong>Theoretical probability</strong> is based on reasoning. For example, a fair six-sided die has 6 equal outcomes, so the probability of rolling a 4 is exactly 1/6. <strong>Experimental probability</strong> is based on trials—if you roll a die 100 times and get a "4" twenty times, your experimental probability is 20/100.</p>
+      <h4>Independent vs. Dependent Events</h4>
+      <ul>
+        <li><strong>Independent Events:</strong> The outcome of one doesn't affect the other (like flipping two separate coins).</li>
+        <li><strong>Dependent Events:</strong> The outcome of the first event changes the probability of the second (like drawing a card from a deck and not replacing it).</li>
+      </ul>
+      <h4>The Law of Large Numbers</h4>
+      <p>This law states that as the number of trials increases, the experimental probability will get closer and closer to the theoretical probability. This is why casinos always win in the long run, even if they lose individual hands.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Rolling a specific number on a 6-sided die: Favorable = 1, Total = 6. Probability = 1/6 ≈ 16.67%.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Can probability be greater than 100%?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">No. By definition, an event cannot be more likely than "certain" (100%) or less likely than "impossible" (0%).</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the difference between odds and probability?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Probability is the ratio of success to total possibilities. Odds are the ratio of success to failure (e.g., probability of 25% is 1:3 odds against).</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What does it mean if probability is 0.5?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">It means the event has a 50% chance of happening—it is just as likely to occur as it is to not occur.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="percentage-calculator.html" class="related-link"><span class="r-icon">💯</span>Percentage Calculator</a><a href="fraction-calculator.html" class="related-link"><span class="r-icon">½</span>Fraction Calculator</a><a href="average-calculator.html" class="related-link"><span class="r-icon">📉</span>Average Calculator</a><a href="lcm-hcf-calculator.html" class="related-link"><span class="r-icon">🔢</span>LCM & GCF Calculator</a><a href="exponent-calculator.html" class="related-link"><span class="r-icon">xⁿ</span>Exponent Calculator</a><a href="quadratic-calculator.html" class="related-link"><span class="r-icon">📏</span>Quadratic Equation Solver</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
+}
+function calculate(){
+  const n = parseFloat(v('n')), f = parseFloat(v('f'));
+  if(!n) return alert('Outcomes cannot be 0');
+  if(f > n) return alert('Favorable outcomes cannot exceed total outcomes');
+  const p = (f/n) * 100;
+  showResult('Probability', p.toFixed(2)+'%', [
+    'Ratio: '+f+' / '+n,
+    'Decimal: '+(f/n).toFixed(4),
+    'Odds Against: '+(n-f)+' to '+f,
+    'Fraction: '+reduce(f, n)
+  ]);
+}
+function reduce(n, d){
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+  const common = gcd(n, d);
+  return (n/common) + '/' + (d/common);
+}
+</script>
+</body>
+</html>

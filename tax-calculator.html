@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fII78qQyW_SG17i4NZEG2jaoV1cdlCNkUe_a0m7W9Iw">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<title>Tax Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Estimate your income tax and take-home pay. Use our free tax calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Tax Calculator – Free Online Calculator">
+<meta property="og:description" content="Estimate your income tax and take-home pay.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://all-in-one-calculators.pages.dev/tax-calculator.html">
+<link rel="canonical" href="https://all-in-one-calculators.pages.dev/tax-calculator.html">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Tax Calculator – Free Online Calculator",
+  "description": "Estimate your income tax and take-home pay. Use our free tax calculator online — instant results, no sign-up.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All"
+}
+</script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.svg" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <span class="logo-heading" style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</span>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Runs in your browser
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="finance-calculators.html">Finance Calculators</a>
+      <span>›</span>
+      <span class="current">Tax Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🧾 Tax Calculator</h1>
+      <p>Explore a simplified tax scenario for rough planning only.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="income">Gross Annual Income ($)</label>
+      <input type="number" id="income" placeholder="75000" >
+    </div><div class="form-group"><label for="filing">Filing Status</label><select id="filing" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="single">Single</option><option value="married filing jointly">Married Filing Jointly</option><option value="head of household">Head of Household</option></select></div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate Tax</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+        
+        <!-- Social Share Viral Section -->
+        <div class="viral-share" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px; display: none;" id="shareBox">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">🚀 SHARE YOUR RESULT:</p>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="shareResult('whatsapp')" style="background: #25d366; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">WhatsApp</button>
+            <button onclick="shareResult('facebook')" style="background: #1877f2; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Facebook</button>
+            <button onclick="shareResult('copy')" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Tax Calculator?</h2>
+      <p>This simplified estimate does not model current statutory brackets, deductions, credits, state taxes, or individual circumstances. Do not use it to file a return or make a financial decision; use an official tax authority tool or a qualified adviser.</p>
+      <div class="formula-box"><code>Federal Tax = Income × Effective Bracket Rate</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Tax Calculator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Taxes are inevitable, but they don't have to be a surprise. Our estimator helps you plan for your annual tax bill so you can adjust your withholdings or savings accordingly.</p>
+      <h4>Marginal vs. Effective Rate</h4>
+      <p>Your <strong>marginal tax rate</strong> is the tax percentage on your <em>last</em> dollar earned. Your <strong>effective tax rate</strong> is the total tax you pay divided by your total income. Usually, your effective rate is much lower than your marginal rate because of standard deductions and lower brackets.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>$75,000 Single filer ≈ $13,500 Federal Tax</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="mortgage-calculator.html" class="related-link"><span class="r-icon">🏠</span>Mortgage Calculator</a><a href="loan-calculator.html" class="related-link"><span class="r-icon">🏦</span>Loan Calculator</a><a href="compound-interest.html" class="related-link"><span class="r-icon">📈</span>Compound Interest Calculator</a><a href="savings-calculator.html" class="related-link"><span class="r-icon">🐷</span>Savings Calculator</a><a href="investment-calculator.html" class="related-link"><span class="r-icon">💹</span>Investment Calculator</a><a href="roi-calculator.html" class="related-link"><span class="r-icon">📊</span>ROI Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
+}
+function calculate(){
+  const inc = parseFloat(v('income'));
+  const status = document.getElementById('filing').value;
+  if(!inc) return alert('Please enter income');
+  // Simple 2024 bracket approximation
+  let tax = 0;
+  if (inc > 100000) tax = inc * 0.25;
+  else if (inc > 50000) tax = inc * 0.18;
+  else tax = inc * 0.12;
+  const net = inc - tax;
+  showResult('Est. Federal Tax', '$'+tax.toLocaleString(), [
+    'Take-home Pay: $'+net.toLocaleString(),
+    'Effective Rate: '+(tax/inc*100).toFixed(1)+'%',
+    'Monthly Net: $'+(net/12).toLocaleString()
+  ]);
+}
+</script>
+</body>
+</html>
