@@ -1,14 +1,14 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse
-import re, sys
+import json, re, sys
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE="https://truecalco.com/"
 
 class P(HTMLParser):
     def __init__(self):
-        super().__init__(); self.title=[]; self.in_title=False; self.h1=0; self.links=[]; self.canonical=[]; self.description=[]; self.scripts=[]; self.in_script=False; self.script_type=""; self.buf=[]
+        super().__init__(); self.title=[]; self.in_title=False; self.h1=0; self.links=[]; self.canonical=[]; self.description=[]; self.scripts=[]; self.json_ld=[]; self.in_script=False; self.script_type=""; self.buf=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag=="title": self.in_title=True
@@ -20,7 +20,9 @@ class P(HTMLParser):
     def handle_endtag(self,tag):
         if tag=="title": self.in_title=False
         if tag=="script":
-            if not self.script_type or "javascript" in self.script_type: self.scripts.append("".join(self.buf))
+            script="".join(self.buf)
+            if self.script_type=="application/ld+json": self.json_ld.append(script)
+            elif not self.script_type or "javascript" in self.script_type: self.scripts.append(script)
             self.in_script=False
     def handle_data(self,data):
         if self.in_title:self.title.append(data)
@@ -28,7 +30,7 @@ class P(HTMLParser):
 
 errors=[]; titles={}; canonicals={}; htmls=list(ROOT.glob("*.html"))
 for f in htmls:
-    p=P(); p.feed(f.read_text(encoding="utf-8"))
+    source=f.read_text(encoding="utf-8"); p=P(); p.feed(source)
     title="".join(p.title).strip()
     if not title: errors.append(f"{f.name}: missing title")
     elif title in titles: errors.append(f"{f.name}: duplicate title with {titles[title]}")
@@ -44,6 +46,24 @@ for f in htmls:
         if c != expected_canonical: errors.append(f"{f.name}: wrong canonical {c}; expected {expected_canonical}")
         if c in canonicals: errors.append(f"{f.name}: duplicate canonical with {canonicals[c]}")
         canonicals[c]=f.name
+    if 'class="calc-form"' in source:
+        if 'src="share-links.js"' not in source: errors.append(f"{f.name}: missing shareable URL support")
+        try:
+            schemas=[json.loads(value) for value in p.json_ld]
+        except json.JSONDecodeError as exc:
+            errors.append(f"{f.name}: invalid JSON-LD: {exc}")
+            schemas=[]
+        nodes=[]
+        for schema in schemas:
+            nodes.extend(schema.get("@graph",[schema]))
+        apps=[node for node in nodes if node.get("@type")=="SoftwareApplication"]
+        faqs=[node for node in nodes if node.get("@type")=="FAQPage"]
+        if len(apps)!=1: errors.append(f"{f.name}: expected one SoftwareApplication schema, found {len(apps)}")
+        elif apps[0].get("url")!=expected_canonical: errors.append(f"{f.name}: SoftwareApplication URL does not match canonical")
+        visible_faqs=len(re.findall(r'class="faq-question"',source,re.I))
+        if visible_faqs < 3: errors.append(f"{f.name}: expected at least three visible FAQs, found {visible_faqs}")
+        if len(faqs)!=1: errors.append(f"{f.name}: expected one FAQPage schema, found {len(faqs)}")
+        elif len(faqs[0].get("mainEntity",[]))!=visible_faqs: errors.append(f"{f.name}: FAQ schema does not match visible FAQs")
     for href in p.links:
         if href.startswith(("http://","https://","mailto:","tel:","#","javascript:")): continue
         target=href.split("#")[0].split("?")[0]
@@ -69,6 +89,10 @@ for f in ROOT.glob("*.*"):
 
 new_pages=[f for f in htmls if 'expansion-calculators.js' in f.read_text(encoding='utf-8') and 'data-calculator=' in f.read_text(encoding='utf-8')]
 if len(new_pages)!=34: errors.append(f"expected 34 expansion calculators, found {len(new_pages)}")
+
+contact=(ROOT/"contact.html").read_text(encoding="utf-8") if (ROOT/"contact.html").exists() else ""
+if "mailto:hello@truecalco.com" not in contact: errors.append("contact.html: missing support email")
+if "github.com/maryam-2021/all-in-one-calculators/issues" not in contact: errors.append("contact.html: missing GitHub issue link")
 
 if errors:
     print("VALIDATION FAILED")
