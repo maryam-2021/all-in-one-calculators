@@ -25,7 +25,7 @@
 }
 </script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -48,7 +48,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -62,7 +62,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -258,5 +258,5 @@ function resetCalc(){
       }
     
 </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

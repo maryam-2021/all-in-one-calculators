@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://truecalco.com/article-science-of-love-compatibility">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -34,7 +34,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -48,7 +48,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page" style="max-width:800px; margin: 0 auto; padding-top:40px;">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1" style="max-width:800px; margin: 0 auto; padding-top:40px;">
     <div class="breadcrumb">
       <a href="/">Home</a> <span>›</span> <a href="guides">Guides</a> <span>›</span> <span>Article</span>
     </div>
@@ -151,5 +151,5 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
   });
 })();
 </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

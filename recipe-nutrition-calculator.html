@@ -25,7 +25,7 @@
 }
 </script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -48,7 +48,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -62,7 +62,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -97,11 +97,11 @@
         <label style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; display:block; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Your Recipe Ingredients</label>
         <div id="ingsList">
           <div class="ingredient-row">
-            <input type="text" placeholder="e.g. 2 eggs" class="ing-input" style="width:100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color 0.2s;">
+            <label class="sr-only" for="ingredient-1">Ingredient 1</label><input type="text" id="ingredient-1" placeholder="e.g. 2 eggs" class="ing-input" style="width:100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color 0.2s;">
             <button class="calc-btn-secondary" onclick="this.parentNode.remove()" style="padding: 0 20px; color: #ff7675; border-color: rgba(255,118,117,0.3); font-size: 1.2rem; cursor: pointer;" title="Remove Ingredient">✕</button>
           </div>
           <div class="ingredient-row">
-            <input type="text" placeholder="e.g. 100g chicken breast" class="ing-input" style="width:100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color 0.2s;">
+            <label class="sr-only" for="ingredient-2">Ingredient 2</label><input type="text" id="ingredient-2" placeholder="e.g. 100g chicken breast" class="ing-input" style="width:100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color 0.2s;">
             <button class="calc-btn-secondary" onclick="this.parentNode.remove()" style="padding: 0 20px; color: #ff7675; border-color: rgba(255,118,117,0.3); font-size: 1.2rem; cursor: pointer;" title="Remove Ingredient">✕</button>
           </div>
         </div>
@@ -400,5 +400,5 @@ function resetCalc(){
 }
     
 </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

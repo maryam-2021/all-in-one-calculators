@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/friendship-compatibility#application","name":"Friendship Tester","description":"Find out how compatible you and your best friend are. Use our free friendship tester online — instant results, no sign-up.","applicationCategory":"EntertainmentApplication","operatingSystem":"Any","url":"https://truecalco.com/friendship-compatibility","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/friendship-compatibility#faq","mainEntity":[{"@type":"Question","name":"Is this for life?","acceptedAnswer":{"@type":"Answer","text":"It's just for fun! Real friendship lasts a lifetime."}},{"@type":"Question","name":"How does the Friendship Tester work?","acceptedAnswer":{"@type":"Answer","text":"The calculator applies the formula and assumptions explained on this page to the values you enter. Find out how compatible you and your best friend are. Use our free friendship tester online — instant results, no sign-up."}},{"@type":"Question","name":"How accurate is the Friendship Tester?","acceptedAnswer":{"@type":"Answer","text":"The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional."}}]}]}</script>
 </head>
-<body data-content-type="entertainment">
+<body data-content-type="entertainment"><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -255,5 +255,5 @@ function calculate() {
       ]);
     }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

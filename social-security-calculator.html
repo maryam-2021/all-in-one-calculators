@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/social-security-calculator#application","name":"Social Security Estimator","description":"Estimate your future Social Security benefits based on earnings. Use our free social security estimator online — instant results, no sign-up.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://truecalco.com/social-security-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/social-security-calculator#faq","mainEntity":[{"@type":"Question","name":"When can I start taking benefits?","acceptedAnswer":{"@type":"Answer","text":"You can start as early as 62, but your monthly amount will be reduced compared to waiting until full retirement age (usually 67)."}},{"@type":"Question","name":"How is the benefit calculated?","acceptedAnswer":{"@type":"Answer","text":"The Social Security Administration uses your highest 35 years of indexed earnings to calculate your Primary Insurance Amount (PIA)."}},{"@type":"Question","name":"Does waiting until 70 increase my benefit?","acceptedAnswer":{"@type":"Answer","text":"Yes, you earn delayed retirement credits for every month you wait past full retirement age, up to age 70."}}]}]}</script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -267,5 +267,5 @@ function calculate(){
   ]);
 }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

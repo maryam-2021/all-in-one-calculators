@@ -25,7 +25,7 @@
 }
 </script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -48,7 +48,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -62,7 +62,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -88,58 +88,58 @@
         .time-input-grid label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px; }
         .time-input-grid input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff; font-family: 'JetBrains Mono', monospace; }
       </style>
-      <div class="tc-tabs">
-        <div class="tc-tab active" onclick="showTab(0)">Add/Subtract</div>
-        <div class="tc-tab" onclick="showTab(1)">Time from Date</div>
-        <div class="tc-tab" onclick="showTab(2)">Expression</div>
+      <div class="tc-tabs" role="tablist" aria-label="Time calculator modes">
+        <button type="button" id="timeTab0" class="tc-tab active" role="tab" aria-selected="true" aria-controls="panel0" onclick="showTab(0)">Add/Subtract</button>
+        <button type="button" id="timeTab1" class="tc-tab" role="tab" aria-selected="false" aria-controls="panel1" onclick="showTab(1)">Time from Date</button>
+        <button type="button" id="timeTab2" class="tc-tab" role="tab" aria-selected="false" aria-controls="panel2" onclick="showTab(2)">Expression</button>
       </div>
 
-      <div id="panel0" class="tc-panel active">
+      <div id="panel0" class="tc-panel active" role="tabpanel" aria-labelledby="timeTab0">
         <div class="time-input-grid">
-          <div><label>Days</label><input type="number" id="td1" value="0"></div>
-          <div><label>Hours</label><input type="number" id="th1" value="0"></div>
-          <div><label>Mins</label><input type="number" id="tm1" value="0"></div>
-          <div><label>Secs</label><input type="number" id="ts1" value="0"></div>
+          <div><label for="td1">Days</label><input type="number" id="td1" value="0"></div>
+          <div><label for="th1">Hours</label><input type="number" id="th1" value="0"></div>
+          <div><label for="tm1">Mins</label><input type="number" id="tm1" value="0"></div>
+          <div><label for="ts1">Secs</label><input type="number" id="ts1" value="0"></div>
         </div>
         <div style="text-align: center; margin: 0 0 16px;">
-          <select id="top1" style="background: var(--bg-input); border: 1px solid var(--border-color); color: #fff; padding: 6px 16px; border-radius: 6px; font-weight: 700;">
+          <label class="sr-only" for="top1">Operation</label><select id="top1" style="background: var(--bg-input); border: 1px solid var(--border-color); color: #fff; padding: 6px 16px; border-radius: 6px; font-weight: 700;">
             <option value="add">+</option>
             <option value="sub">−</option>
           </select>
         </div>
         <div class="time-input-grid">
-          <div><label>Days</label><input type="number" id="td2" value="0"></div>
-          <div><label>Hours</label><input type="number" id="th2" value="0"></div>
-          <div><label>Mins</label><input type="number" id="tm2" value="0"></div>
-          <div><label>Secs</label><input type="number" id="ts2" value="0"></div>
+          <div><label for="td2">Days</label><input type="number" id="td2" value="0"></div>
+          <div><label for="th2">Hours</label><input type="number" id="th2" value="0"></div>
+          <div><label for="tm2">Mins</label><input type="number" id="tm2" value="0"></div>
+          <div><label for="ts2">Secs</label><input type="number" id="ts2" value="0"></div>
         </div>
         <button class="calc-btn" onclick="calcAddSub()" style="width: 100%; margin-top: 12px;">Calculate Result</button>
       </div>
 
-      <div id="panel1" class="tc-panel">
+      <div id="panel1" class="tc-panel" role="tabpanel" aria-labelledby="timeTab1" hidden>
         <div class="form-group" style="margin-bottom: 16px;">
-          <label>Start Date & Time</label>
+          <label for="tDateTimeStart">Start Date & Time</label>
           <input type="datetime-local" id="tDateTimeStart" style="width:100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff;">
         </div>
         <div class="form-group" style="margin-bottom: 16px;">
-          <label>Operation</label>
+          <label for="topDate">Operation</label>
           <select id="topDate" style="width:100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff;">
             <option value="add">Add Time</option>
             <option value="sub">Subtract Time</option>
           </select>
         </div>
         <div class="time-input-grid">
-          <div><label>Days</label><input type="number" id="tdd" value="0"></div>
-          <div><label>Hours</label><input type="number" id="tdh" value="0"></div>
-          <div><label>Mins</label><input type="number" id="tdm" value="0"></div>
-          <div><label>Secs</label><input type="number" id="tds" value="0"></div>
+          <div><label for="tdd">Days</label><input type="number" id="tdd" value="0"></div>
+          <div><label for="tdh">Hours</label><input type="number" id="tdh" value="0"></div>
+          <div><label for="tdm">Mins</label><input type="number" id="tdm" value="0"></div>
+          <div><label for="tds">Secs</label><input type="number" id="tds" value="0"></div>
         </div>
         <button class="calc-btn" onclick="calcFromDate()" style="width: 100%; margin-top: 12px;">Calculate New Date</button>
       </div>
 
-      <div id="panel2" class="tc-panel">
+      <div id="panel2" class="tc-panel" role="tabpanel" aria-labelledby="timeTab2" hidden>
         <div class="form-group">
-          <label>Expression (e.g. 1d 2h + 30m - 5s)</label>
+          <label for="tExprInput">Expression (e.g. 1d 2h + 30m - 5s)</label>
           <input type="text" id="tExprInput" placeholder="1d 2h 3m + 4h" style="width:100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: #fff; font-family: 'JetBrains Mono', monospace;">
         </div>
         <button class="calc-btn" onclick="calcExpr()" style="width: 100%; margin-top: 16px;">Evaluate Expression</button>
@@ -344,8 +344,8 @@ function resetCalc(){
 }
 
       function showTab(n) {
-        document.querySelectorAll('.tc-tab').forEach((t, i) => t.classList.toggle('active', i === n));
-        document.querySelectorAll('.tc-panel').forEach((p, i) => p.classList.toggle('active', i === n));
+        document.querySelectorAll('.tc-tab').forEach((t, i) => { const active=i===n; t.classList.toggle('active', active); t.setAttribute('aria-selected', String(active)); });
+        document.querySelectorAll('.tc-panel').forEach((p, i) => { const active=i===n; p.classList.toggle('active', active); p.hidden=!active; });
         document.getElementById('tCalcResult').style.display = 'none';
       }
 
@@ -428,5 +428,5 @@ function resetCalc(){
       document.getElementById('tDateTimeStart').value = new Date().toISOString().slice(0, 16);
     
 </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

@@ -11,7 +11,7 @@
   
   --text-primary: #ffffff;
   --text-secondary: #9aa0ac;
-  --text-muted: #5f6574;
+  --text-muted: #aab2c0;
   
   --accent-blue: #4facfe;
   --accent-blue-hover: #00f2fe;
@@ -1492,12 +1492,45 @@ body.light-mode {
   --border-color: rgba(0, 0, 0, 0.08);
   --text-primary: #1a1d26;
   --text-secondary: #5a5f6d;
-  --text-muted: #9098a8;
+  --text-muted: #626a78;
+  --accent-blue: #0969b8;
+  --accent-blue-hover: #075a9e;
+  --border-active: #0969b8;
   --accent-glow: 0 0 24px rgba(32, 138, 240, 0.25);
   background-image:
     radial-gradient(circle at 10% 20%, rgba(32, 138, 240, 0.06) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(32, 138, 240, 0.03) 0%, transparent 40%);
 }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+:focus-visible {
+  outline: 3px solid #c026d3 !important;
+  outline-offset: 3px !important;
+}
+.hp-search-results a:focus-visible { outline: 3px solid #c026d3 !important; outline-offset: 2px !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.calc-btn { background: linear-gradient(135deg, #0b63b6, #075a9e); }
+.hp-search-shell > button { background: linear-gradient(135deg, #0b63b6, #075a9e); }
 body.light-mode .navbar {
   background: rgba(244, 246, 250, 0.85);
 }

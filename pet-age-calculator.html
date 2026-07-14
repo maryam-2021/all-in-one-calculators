@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/pet-age-calculator#application","name":"Pet Age Converter","description":"Convert dog or cat years into human years. Use our free pet age converter online — instant results, no sign-up.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://truecalco.com/pet-age-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/pet-age-calculator#faq","mainEntity":[{"@type":"Question","name":"Why do large dogs age faster?","acceptedAnswer":{"@type":"Answer","text":"Biological stress and metabolic rates differ significantly between breeds."}},{"@type":"Question","name":"How does the Pet Age Converter work?","acceptedAnswer":{"@type":"Answer","text":"The calculator applies the formula and assumptions explained on this page to the values you enter. Convert dog or cat years into human years. Use our free pet age converter online — instant results, no sign-up."}},{"@type":"Question","name":"How accurate is the Pet Age Converter?","acceptedAnswer":{"@type":"Answer","text":"The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional."}}]}]}</script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -248,5 +248,5 @@ function calculate(){
       showResult('Human Age', res + ' years', ['Stage: ' + (res > 50 ? 'Senior' : 'Adult')]);
     }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

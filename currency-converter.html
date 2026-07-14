@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/currency-converter#application","name":"Currency Converter","description":"Convert currency using an exchange rate you provide. This private, browser-based calculator makes no unsupported live-rate claims.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://truecalco.com/currency-converter","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/currency-converter#faq","mainEntity":[{"@type":"Question","name":"Is this calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no sign-up required."}},{"@type":"Question","name":"How accurate are the results?","acceptedAnswer":{"@type":"Answer","text":"Results are calculated using standard mathematical formulas and are accurate to 4 decimal places."}},{"@type":"Question","name":"Can I use this on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes, this calculator works on all devices including smartphones and tablets."}}]}]}</script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -254,5 +254,5 @@ function calculate(){
   ]);
 }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

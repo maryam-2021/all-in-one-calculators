@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/break-even-calculator#application","name":"Break-Even Point Calculator","description":"Find the sales volume needed to cover your costs. Use our free break-even point calculator online — instant results, no sign-up.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://truecalco.com/break-even-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/break-even-calculator#faq","mainEntity":[{"@type":"Question","name":"Should I include research costs?","acceptedAnswer":{"@type":"Answer","text":"Yes, any cost that doesn't change with unit volume should go into Fixed Costs."}},{"@type":"Question","name":"How does the Break-Even Point Calculator work?","acceptedAnswer":{"@type":"Answer","text":"The calculator applies the formula and assumptions explained on this page to the values you enter. Find the sales volume needed to cover your costs. Use our free break-even point calculator online — instant results, no sign-up."}},{"@type":"Question","name":"How accurate is the Break-Even Point Calculator?","acceptedAnswer":{"@type":"Answer","text":"The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional."}}]}]}</script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -254,5 +254,5 @@ function calculate(){
       showResult('Units Needed', Math.ceil(units) + ' units', ['Target Sales: $' + (Math.ceil(units) * p).toFixed(2)]);
     }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

@@ -19,7 +19,7 @@
   {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://truecalco.com/#website","name":"TrueCalco","url":"https://truecalco.com/","description":"Free online calculators for practical decisions.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://truecalco.com/?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://truecalco.com/#organization","name":"TrueCalco","url":"https://truecalco.com/","logo":"https://truecalco.com/logo.svg"},{"@type":"CollectionPage","name":"TrueCalco calculator directory","url":"https://truecalco.com/","isPartOf":{"@id":"https://truecalco.com/#website"},"about":["Finance calculators","Construction calculators","Health calculators","Statistics calculators","Developer utilities","Unit converters"]}]}
   </script>
 </head>
-<body class="home-page">
+<body class="home-page"><a class="skip-link" href="#main-content">Skip to main content</a>
   <a class="skip-link" href="#main-content">Skip to calculators</a>
   <nav class="navbar home-nav" aria-label="Primary navigation">
     <div class="site-wrapper">
@@ -192,5 +192,5 @@
     const menu=document.getElementById('hamburgerBtn'), nav=document.getElementById('navLinks'); menu.addEventListener('click',e=>{e.stopPropagation();const open=nav.classList.toggle('active');menu.setAttribute('aria-expanded',String(open));}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('active');menu.setAttribute('aria-expanded','false');})); document.addEventListener('click',()=>{nav.classList.remove('active');menu.setAttribute('aria-expanded','false');});
   })();
   </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

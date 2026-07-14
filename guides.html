@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://truecalco.com/guides">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -34,7 +34,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -47,7 +47,7 @@
     </div>
   </div>
 </nav>
-<div class="site-wrapper">
+<div class="site-wrapper" id="main-content" role="main" tabindex="-1">
   <div style="padding:40px 0 60px">
     <h1 style="font-size:2.4rem;margin-bottom:12px">Guides & Resources</h1>
     <p style="color:var(--text-secondary);max-width:600px">In-depth explanations of financial terms, health metrics, and mathematical concepts to help you use our calculators effectively.</p>
@@ -195,5 +195,5 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
   });
 })();
 </script>
-<script src="retention.js" defer></script></body>
+<script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>

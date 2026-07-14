@@ -16,7 +16,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://truecalco.com/date-calculator#application","name":"Date Calculator","description":"Add or subtract days from a date and find the difference between dates. Use our free date calculator online — instant results, no sign-up.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://truecalco.com/date-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://truecalco.com/date-calculator#faq","mainEntity":[{"@type":"Question","name":"How does the Date Calculator work?","acceptedAnswer":{"@type":"Answer","text":"The calculator applies the formula and assumptions explained on this page to the values you enter. Add or subtract days from a date and find the difference between dates. Use our free date calculator online — instant results, no sign-up."}},{"@type":"Question","name":"How accurate is the Date Calculator?","acceptedAnswer":{"@type":"Answer","text":"The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional."}},{"@type":"Question","name":"Does the Date Calculator save my inputs?","acceptedAnswer":{"@type":"Answer","text":"No. The calculation runs in your browser and does not require an account. Avoid sharing a prefilled result link if its inputs are sensitive."}}]}]}</script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="site-wrapper">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@
       <div class="header-actions">
         <div class="search-pill">
           <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search calculators..." id="globalSearch">
+          <label class="sr-only" for="globalSearch">Search calculators</label><input type="text" placeholder="Search calculators..." id="globalSearch">
         </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -53,7 +53,7 @@
   </div>
 </nav>
 <div class="site-wrapper">
-  <div class="calc-page">
+  <div class="calc-page" id="main-content" role="main" tabindex="-1">
     <div class="breadcrumb">
       <a href="/">Home</a>
       <span>›</span>
@@ -132,12 +132,12 @@
     <div class="faq-section">
       <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
       
-          <button class="faq-question">How does the Date Calculator work?<span class="icon">+</span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">The calculator applies the formula and assumptions explained on this page to the values you enter. Add or subtract days from a date and find the difference between dates. Use our free date calculator online — instant results, no sign-up.</div></div>
-      <button class="faq-question">How accurate is the Date Calculator?<span class="icon">+</span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional.</div></div>
-      <button class="faq-question">Does the Date Calculator save my inputs?<span class="icon">+</span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">No. The calculation runs in your browser and does not require an account. Avoid sharing a prefilled result link if its inputs are sensitive.</div></div>
+          <div class="faq-item"><button class="faq-question">How does the Date Calculator work?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The calculator applies the formula and assumptions explained on this page to the values you enter. Add or subtract days from a date and find the difference between dates. Use our free date calculator online — instant results, no sign-up.</div></div></div>
+      <div class="faq-item"><button class="faq-question">How accurate is the Date Calculator?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The arithmetic follows the displayed method, but accuracy depends on your inputs, units, assumptions, and rounding. Confirm important decisions with an authoritative source or qualified professional.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Does the Date Calculator save my inputs?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">No. The calculation runs in your browser and does not require an account. Avoid sharing a prefilled result link if its inputs are sensitive.</div></div></div>
     </div>
 
     <div class="related-section">
@@ -263,5 +263,5 @@ function calculate(){
   ]);
 }
 </script>
-<script src="share-links.js" defer></script><script src="retention.js" defer></script></body>
+<script src="share-links.js" defer></script><script src="retention.js" defer></script><script src="accessibility.js" defer></script></body>
 </html>
