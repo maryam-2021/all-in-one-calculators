@@ -192,5 +192,5 @@
     const menu=document.getElementById('hamburgerBtn'), nav=document.getElementById('navLinks'); menu.addEventListener('click',e=>{e.stopPropagation();const open=nav.classList.toggle('active');menu.setAttribute('aria-expanded',String(open));}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('active');menu.setAttribute('aria-expanded','false');})); document.addEventListener('click',()=>{nav.classList.remove('active');menu.setAttribute('aria-expanded','false');});
   })();
   </script>
-</body>
+<script src="retention.js" defer></script></body>
 </html>
