@@ -22,6 +22,21 @@ for path in html_files:
     # hrefs, and the homepage's JavaScript search index.
     for filename, route in routes.items():
         source = source.replace(filename, route)
+
+    # Every indexable page should declare its own clean Open Graph URL, even
+    # when the legacy page did not previously include Open Graph metadata.
+    if path.name != "404.html" and 'property="og:url"' not in source:
+        route = "/" if path.name == "index.html" else "/" + path.stem
+        og_url = f'<meta property="og:url" content="{NEW_HOST}{route}">'
+        source, count = re.subn(
+            r'(<link\s+rel="canonical"[^>]*>)',
+            rf"\1\n    {og_url}",
+            source,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if count != 1:
+            raise RuntimeError(f"Could not add og:url after canonical in {path.name}")
     path.write_text(source, encoding="utf-8")
 
 urls = []
