@@ -6,6 +6,7 @@ import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
+ENTERTAINMENT_SLUGS = {'zodiac-matcher', 'life-expectancy', 'baby-name-meaning', 'lucky-numbers', 'numerology-calculator', 'love-calculator', 'friendship-compatibility'}
 
 
 class CalculatorContentParser(HTMLParser):
@@ -146,7 +147,7 @@ for path in sorted(ROOT.glob("*.html")):
                 "@id": url + "#application",
                 "name": heading,
                 "description": description,
-                "applicationCategory": "UtilityApplication",
+                "applicationCategory": "EntertainmentApplication" if path.stem in ENTERTAINMENT_SLUGS else "UtilityApplication",
                 "operatingSystem": "Any",
                 "url": url,
                 "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},

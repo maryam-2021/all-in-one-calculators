@@ -5,6 +5,7 @@ import json, re, sys
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE="https://truecalco.com/"
+ENTERTAINMENT={"love-calculator","friendship-compatibility","zodiac-matcher","numerology-calculator","lucky-numbers","baby-name-meaning","life-expectancy"}
 
 class P(HTMLParser):
     def __init__(self):
@@ -60,6 +61,11 @@ for f in htmls:
         faqs=[node for node in nodes if node.get("@type")=="FAQPage"]
         if len(apps)!=1: errors.append(f"{f.name}: expected one SoftwareApplication schema, found {len(apps)}")
         elif apps[0].get("url")!=expected_canonical: errors.append(f"{f.name}: SoftwareApplication URL does not match canonical")
+        if f.stem in ENTERTAINMENT:
+            if 'data-content-type="entertainment"' not in source: errors.append(f"{f.name}: missing entertainment content type")
+            if 'class="content-label entertainment-label"' not in source: errors.append(f"{f.name}: missing visible entertainment label")
+            if 'class="formula-box"' not in source: errors.append(f"{f.name}: entertainment rule is not transparent")
+            if len(apps)==1 and apps[0].get("applicationCategory")!="EntertainmentApplication": errors.append(f"{f.name}: wrong entertainment schema category")
         visible_faqs=len(re.findall(r'class="faq-question"',source,re.I))
         if visible_faqs < 3: errors.append(f"{f.name}: expected at least three visible FAQs, found {visible_faqs}")
         if len(faqs)!=1: errors.append(f"{f.name}: expected one FAQPage schema, found {len(faqs)}")
@@ -93,6 +99,10 @@ if len(new_pages)!=34: errors.append(f"expected 34 expansion calculators, found 
 contact=(ROOT/"contact.html").read_text(encoding="utf-8") if (ROOT/"contact.html").exists() else ""
 if "mailto:hello@truecalco.com" not in contact: errors.append("contact.html: missing support email")
 if "github.com/maryam-2021/all-in-one-calculators/issues" not in contact: errors.append("contact.html: missing GitHub issue link")
+relationship=(ROOT/"relationship-calculators.html").read_text(encoding="utf-8")
+lifestyle=(ROOT/"lifestyle-calculators.html").read_text(encoding="utf-8")
+if relationship.count('class="card-badge"')!=5 or "category-entertainment-note" not in relationship: errors.append("relationship-calculators.html: incomplete entertainment labelling")
+if lifestyle.count('class="card-badge"')!=2 or "category-mixed-note" not in lifestyle: errors.append("lifestyle-calculators.html: incomplete mixed-category labelling")
 
 if errors:
     print("VALIDATION FAILED")
