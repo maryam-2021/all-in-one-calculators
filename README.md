@@ -1,6 +1,6 @@
-# CalcSmart
+# TrueCalco
 
-Static source for the CalcSmart calculator collection, recovered from the prior Vercel deployment and hardened for Cloudflare Pages.
+Static source for the TrueCalco calculator collection, recovered from the prior Vercel deployment and hardened for Cloudflare Pages.
 
 ## Deploy
 
