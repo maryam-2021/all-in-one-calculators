@@ -801,6 +801,45 @@ body.light-mode .home-nav { background:rgba(246,248,251,.86); }.light-mode .nav-
   max-height: 400px;
   padding: 32px;
 }
+
+.truecalco-share {
+  display: none;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.calc-result.visible .truecalco-share {
+  display: block;
+}
+
+.truecalco-share > p {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.truecalco-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.truecalco-share-actions button {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.truecalco-share-actions .share-whatsapp { background: #168c46; }
+.truecalco-share-actions .share-facebook { background: #1877f2; }
+.truecalco-share-actions .share-copy { background: var(--surface-2, #25304a); }
 .result-label {
   font-size: 0.85rem;
   color: var(--text-secondary);
