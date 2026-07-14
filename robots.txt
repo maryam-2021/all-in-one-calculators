@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://all-in-one-calculators.pages.dev/sitemap.xml
+Sitemap: https://truecalco.com/sitemap.xml
